@@ -4,8 +4,7 @@ import mongoose from "mongoose";
 import helmet from "helmet";
 import morgan from "morgan";
 
-import userRouter from "./routes/users.js";
-
+import userRouter from "./routes/users.routes.js";
 dotenv.config();
 
 const app = express();

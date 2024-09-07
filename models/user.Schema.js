@@ -35,15 +35,43 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    followers: {
-      type: [Number],
-    },
-    following: {
-      type: [Number],
-    },
+    // followers: {
+    //   type: [String],
+    // },
+    followers: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
+    // following: {
+    //   type: [String],
+    // },
+    following: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
     isAdmin: {
       type: Boolean,
       default: false,
+    },
+    desc: {
+      type: String,
+      maxLength: 50,
+    },
+    city: {
+      type: String,
+      maxLength: 20,
+    },
+    from: {
+      type: String,
+      maxLength: 20,
+    },
+    relationship: {
+      type: Number,
+      enum: [1, 2, 3],
     },
   },
   {

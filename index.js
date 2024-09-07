@@ -5,6 +5,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 
 import userRouter from "./routes/users.routes.js";
+import { postRouter } from "./routes/post.routes.js";
 dotenv.config();
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(morgan("common"));
 
 // Routes
 app.use("/api/users", userRouter);
+app.use("/api/post", postRouter);
 
 async function connectMongoDb() {
   await mongoose.connect(process.env.MONGO_URL);
